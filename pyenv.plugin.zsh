@@ -13,7 +13,9 @@ eval "$(pyenv init -)"
     local all=$(pyenv install -l | tr -d '^ \t')
     local py27=$(echo $all | \grep -P "^2\.7\.\d+$" | tail -1)
     local py3=$(echo $all | \grep -P "^3\.\d+\.\d+$" | tail -1)
+    echo "Installing $py27 for pyenv..."
     pyenv install -s $py27
+    echo "Installing $py3 for pyenv..."
     pyenv install -s $py3
     pyenv global $py27 $py3
     pyenv versions
